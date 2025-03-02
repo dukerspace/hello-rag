@@ -1,0 +1,6 @@
+**/dist
+**/coverage
+**/.turbo
+**/node_modules
+
+package.json
