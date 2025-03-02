@@ -14,7 +14,7 @@ async function generateAnswer(question) {
   console.log('prompt :', prompt)
 
   const response = await ollama.chat({
-    model: 'phi4',
+    model: 'mistral',
     messages: [{ role: 'user', content: prompt }],
   })
 
