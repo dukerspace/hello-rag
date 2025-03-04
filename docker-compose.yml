@@ -8,7 +8,26 @@ services:
     restart: unless-stopped
     ports:
       - '8000:8000'
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - '11434:11434'
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+
+  webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - '3000:8080'
+    volumes:
+      - webui_data:/app/backend/data
 
 volumes:
   chroma-data:
     driver: local
+  ollama_data:
+  webui_data:
